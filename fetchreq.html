@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+<body>
+    <h1 class ="setup"></h1>
+    <h2 class ="punchline"></h2>
+
+    <script>
+        fetch("https://official-joke-api.appspot.com/random_joke")
+        .then(response => {
+            if(!response.ok){
+                throw new Error("Something went Wrong"+ response.statusText)
+            }return response.json()
+        })
+        .then(display => {
+            console.log(display)
+            document.querySelector(".setup").innerHTML = "Setup: " + display.setup
+            document.querySelector(".punchline").innerHTML = "Punch line: " + display.punchline
+        })
+
+
+    </script>
+    
+</body>
+</html>

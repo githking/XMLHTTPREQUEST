@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Axios Random Jokes</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <h1 class ="setup"></h1>
+    <h2 class ="punchline"></h2>
+    <script>
+        axios.get("https://official-joke-api.appspot.com/random_joke")
+        .then(response => {
+            display = response.data
+            console.log(display)
+            document.querySelector(".setup").innerHTML = "Setup: " + display.setup
+            document.querySelector(".punchline").innerHTML = "Punch line: " + display.punchline
+        })
+    </script>
+    
+</body>
+</html>
